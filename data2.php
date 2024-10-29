@@ -108,6 +108,9 @@ $result = $conn->query($sql);
                                         <!-- <button class="genric-btn primary circle small edit-btn" data-id="<?php echo $data['id']; ?>">Edit</button> -->
                                         <a href="edit_measurement.php?id=<?php echo $data['id']; ?>" class="genric-btn primary circle small">Edit</a>
 
+                                        <a href="view_measurement.php?id=<?php echo $data['id']; ?>" class="genric-btn info circle small">View</a>
+
+
                                     </td>
                                 </tr>
                             <?php endwhile; ?>
