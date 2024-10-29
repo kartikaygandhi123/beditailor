@@ -1,6 +1,38 @@
 <?php
-session_start();
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "measurements_db";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Get the ID from the URL parameter
+$id = $_GET['id'] ?? null;
+
+if ($id) {
+    // Fetch data for the specific ID
+    $stmt = $conn->prepare("SELECT * FROM measurements WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $data = $result->fetch_assoc();
+
+    if (!$data) {
+        echo "No data found for this ID.";
+        exit();
+    }
+} else {
+    echo "ID is not set.";
+    exit();
+}
 ?>
+
 <!Doctype html>
 <html class="no-js" lang="zxx">
 
@@ -40,6 +72,7 @@ session_start();
 </head>
 
 <body>
+
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -52,7 +85,7 @@ session_start();
             </div>
         </div>
     </div>
-    <!-- Preloader Start -->
+
     <header>
         <!-- Header Start -->
         <div class="header-area header_area">
@@ -98,6 +131,10 @@ session_start();
         </div>
         <!-- Header End -->
     </header>
+
+
+
+
     <main>
         <!--?  Contact Area start  -->
         <section class="contact-section">
@@ -112,12 +149,15 @@ session_start();
                     unset($_SESSION['status']);
                 }
                 ?>
+
                 <div class="row">
                     <div class="col-12">
                         <h2 class="contact-title">Measurements</h2>
                     </div>
                     <div class="col-lg-11 offset-lg-1">
-                        <form class="form-contact " action="submit.php" method="POST" id="" novalidate="novalidate">
+                        <form class="form-contact " id="editForm" method="POST" action="update_measurement.php">
+                            <input type="hidden" name="id" value="<?php echo htmlspecialchars($data['id']); ?>">
+
                             <div class="row">
                                 <div class="col-12">
                                     <h2 class="contact-title">Coat</h2>
@@ -125,70 +165,71 @@ session_start();
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtId">ID</label>
-                                        <input class="form-control valid" name="txtId" id="txtId" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ID'" placeholder="ID">
+                                        <input class="form-control valid" name="txtId" id="txtId" type="text" value="<?php echo htmlspecialchars($data['txtId']); ?>">
+
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtName">Name</label>
-                                        <input class="form-control valid" name="txtName" id="txtName" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" placeholder="Name">
+                                        <input class="form-control valid" name="txtName" id="txtName" type="text" value="<?php echo htmlspecialchars($data['txtName']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" placeholder="Name">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtAddress">Address</label>
-                                        <input class="form-control valid" name="txtAddress" id="txtAddress" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" placeholder="Address">
+                                        <input class="form-control valid" name="txtAddress" id="txtAddress" type="text" value="<?php echo htmlspecialchars($data['txtAddress']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" placeholder="Address">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtPhone">Phone</label>
-                                        <input class="form-control valid" name="txtPhone" id="txtPhone" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" placeholder="Phone">
+                                        <input class="form-control valid" name="txtPhone" id="txtPhone" type="text" value="<?php echo htmlspecialchars($data['txtPhone']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" placeholder="Phone">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtCoatLength">Coat Length</label>
-                                        <input class="form-control valid" name="txtCoatLength" id="txtCoatLength" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Coat Length'" placeholder="Coat Length">
+                                        <input class="form-control valid" name="txtCoatLength" id="txtCoatLength" type="text" value="<?php echo htmlspecialchars($data['txtCoatLength']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Coat Length'" placeholder="Coat Length">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtCoatChest">Coat Chest</label>
-                                        <input class="form-control valid" name="txtCoatChest" id="txtCoatChest" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Coat Chest'" placeholder="Coat Chest">
+                                        <input class="form-control valid" name="txtCoatChest" id="txtCoatChest" type="text" value="<?php echo htmlspecialchars($data['txtCoatChest']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Coat Chest'" placeholder="Coat Chest">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtCoatStomach">Coat Stomach</label>
-                                        <input class="form-control valid" name="txtCoatStomach" id="txtCoatStomach" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Coat Stomach'" placeholder="Coat Stomach">
+                                        <input class="form-control valid" name="txtCoatStomach" id="txtCoatStomach" type="text" value="<?php echo htmlspecialchars($data['txtCoatStomach']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Coat Stomach'" placeholder="Coat Stomach">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtCoatHip">Coat Hip</label>
-                                        <input class="form-control valid" name="txtCoatHip" id="txtCoatHip" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Coat Hip'" placeholder="Coat Hip">
+                                        <input class="form-control valid" name="txtCoatHip" id="txtCoatHip" type="text" value="<?php echo htmlspecialchars($data['txtCoatHip']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Coat Hip'" placeholder="Coat Hip">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtCoatShoulder">Coat Shoulder</label>
-                                        <input class="form-control valid" name="txtCoatShoulder" id="txtCoatShoulder" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Coat Shoulder'" placeholder="Coat Shoulder">
+                                        <input class="form-control valid" name="txtCoatShoulder" id="txtCoatShoulder" type="text" value="<?php echo htmlspecialchars($data['txtCoatShoulder']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Coat Shoulder'" placeholder="Coat Shoulder">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtCoatSleeve">Coat Sleeve</label>
-                                        <input class="form-control valid" name="txtCoatSleeve" id="txtCoatSleeve" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Coat Sleeve'" placeholder="Coat Sleeve">
+                                        <input class="form-control valid" name="txtCoatSleeve" id="txtCoatSleeve" type="text" value="<?php echo htmlspecialchars($data['txtCoatSleeve']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Coat Sleeve'" placeholder="Coat Sleeve">
                                     </div>
                                 </div>
 
@@ -247,7 +288,7 @@ session_start();
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtJacketBan">Jacket Ban</label>
-                                        <input class="form-control valid" name="txtJacketBan" id="txtJacketBan" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Jacket Ban'" placeholder="Jacket Ban">
+                                        <input class="form-control valid" name="txtJacketBan" id="txtJacketBan" type="text" value="<?php echo htmlspecialchars($data['txtJacketBan']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Jacket Ban'" placeholder="Jacket Ban">
                                     </div>
                                 </div>
                             </div>
@@ -260,28 +301,28 @@ session_start();
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtPajamaLength">Pajama Length</label>
-                                        <input class="form-control valid" name="txtPajamaLength" id="txtPajamaLength" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Length'" placeholder="Pajama Length">
+                                        <input class="form-control valid" name="txtPajamaLength" id="txtPajamaLength" type="text" value="<?php echo htmlspecialchars($data['txtPajamaLength']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Length'" placeholder="Pajama Length">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtPajamaHip">Pajama Hip</label>
-                                        <input class="form-control valid" name="txtPajamaHip" id="txtPajamaHip" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Hip'" placeholder="Pajama Hip">
+                                        <input class="form-control valid" name="txtPajamaHip" id="txtPajamaHip" type="text" value="<?php echo htmlspecialchars($data['txtPajamaHip']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Hip'" placeholder="Pajama Hip">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtPajamaWaist">Pajama Waist</label>
-                                        <input class="form-control valid" name="txtPajamaWaist" id="txtPajamaWaist" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Waist'" placeholder="Pajama Waist">
+                                        <input class="form-control valid" name="txtPajamaWaist" id="txtPajamaWaist" type="text" value="<?php echo htmlspecialchars($data['txtPajamaWaist']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Waist'" placeholder="Pajama Waist">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtPajamaBottom">Pajama Bottom</label>
-                                        <input class="form-control valid" name="txtPajamaBottom" id="txtPajamaBottom" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Bottom'" placeholder="Pajama Bottom">
+                                        <input class="form-control valid" name="txtPajamaBottom" id="txtPajamaBottom" type="text" value="<?php echo htmlspecialchars($data['txtPajamaBottom']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Bottom'" placeholder="Pajama Bottom">
                                     </div>
                                 </div>
 
@@ -330,49 +371,49 @@ session_start();
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtPantLength">Pant Length</label>
-                                        <input class="form-control valid" name="txtPantLength" id="txtPantLength" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Length'" placeholder="Pant Length">
+                                        <input class="form-control valid" name="txtPantLength" id="txtPantLength" type="text" value="<?php echo htmlspecialchars($data['txtPantLength']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Length'" placeholder="Pant Length">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtPantInnerLength">Pant Inner Length</label>
-                                        <input class="form-control valid" name="txtPantInnerLength" id="txtPantInnerLength" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Inner Length'" placeholder="Pant Inner Length">
+                                        <input class="form-control valid" name="txtPantInnerLength" id="txtPantInnerLength" type="text" value="<?php echo htmlspecialchars($data['txtPantInnerLength']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Inner Length'" placeholder="Pant Inner Length">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtPantHip">Pant Hip</label>
-                                        <input class="form-control valid" name="txtPantHip" id="txtPantHip" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Hip'" placeholder="Pant Hip">
+                                        <input class="form-control valid" name="txtPantHip" id="txtPantHip" type="text" value="<?php echo htmlspecialchars($data['txtPantHip']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Hip'" placeholder="Pant Hip">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtPantWaist">Pant Waist</label>
-                                        <input class="form-control valid" name="txtPantWaist" id="txtPantWaist" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Waist'" placeholder="Pant Waist">
+                                        <input class="form-control valid" name="txtPantWaist" id="txtPantWaist" type="text" value="<?php echo htmlspecialchars($data['txtPantWaist']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Waist'" placeholder="Pant Waist">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtPantThigh">Pant Thigh</label>
-                                        <input class="form-control valid" name="txtPantThigh" id="txtPantThigh" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Thigh'" placeholder="Pant Thigh">
+                                        <input class="form-control valid" name="txtPantThigh" id="txtPantThigh" type="text" value="<?php echo htmlspecialchars($data['txtPantThigh']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Thigh'" placeholder="Pant Thigh">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtPantKnee">Pant Knee</label>
-                                        <input class="form-control valid" name="txtPantKnee" id="txtPantKnee" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Knee'" placeholder="Pant Knee">
+                                        <input class="form-control valid" name="txtPantKnee" id="txtPantKnee" type="text" value="<?php echo htmlspecialchars($data['txtPantKnee']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Knee'" placeholder="Pant Knee">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtPantBottom">Pant Bottom</label>
-                                        <input class="form-control valid" name="txtPantBottom" id="txtPantBottom" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Bottom'" placeholder="Pant Bottom">
+                                        <input class="form-control valid" name="txtPantBottom" id="txtPantBottom" type="text" value="<?php echo htmlspecialchars($data['txtPantBottom']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pant Bottom'" placeholder="Pant Bottom">
                                     </div>
                                 </div>
 
@@ -406,56 +447,56 @@ session_start();
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtShirtLength">Shirt Length</label>
-                                        <input class="form-control valid" name="txtShirtLength" id="txtShirtLength" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Length'" placeholder="Shirt Length">
+                                        <input class="form-control valid" name="txtShirtLength" id="txtShirtLength" type="text" value="<?php echo htmlspecialchars($data['txtShirtLength']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Length'" placeholder="Shirt Length">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtShirtChest">Shirt Chest</label>
-                                        <input class="form-control valid" name="txtShirtChest" id="txtShirtChest" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Chest'" placeholder="Shirt Chest">
+                                        <input class="form-control valid" name="txtShirtChest" id="txtShirtChest" type="text" value="<?php echo htmlspecialchars($data['txtShirtChest']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Chest'" placeholder="Shirt Chest">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtShirtStomach">Shirt Stomach</label>
-                                        <input class="form-control valid" name="txtShirtStomach" id="txtShirtStomach" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Stomach'" placeholder="Shirt Stomach">
+                                        <input class="form-control valid" name="txtShirtStomach" id="txtShirtStomach" type="text" value="<?php echo htmlspecialchars($data['txtShirtStomach']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Stomach'" placeholder="Shirt Stomach">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtShirtShoulder">Shirt Shoulder</label>
-                                        <input class="form-control valid" name="txtShirtShoulder" id="txtShirtShoulder" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Shoulder'" placeholder="Shirt Shoulder">
+                                        <input class="form-control valid" name="txtShirtShoulder" id="txtShirtShoulder" type="text" value="<?php echo htmlspecialchars($data['txtShirtShoulder']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Shoulder'" placeholder="Shirt Shoulder">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtShirtSleeveFull">Shirt Sleeve Full</label>
-                                        <input class="form-control valid" name="txtShirtSleeveFull" id="txtShirtSleeveFull" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Sleeve Full'" placeholder="Shirt Sleeve Full">
+                                        <input class="form-control valid" name="txtShirtSleeveFull" id="txtShirtSleeveFull" type="text" value="<?php echo htmlspecialchars($data['txtShirtSleeveFull']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Sleeve Full'" placeholder="Shirt Sleeve Full">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtShirtSleeveHalf">Shirt Sleeve Half</label>
-                                        <input class="form-control valid" name="txtShirtSleeveHalf" id="txtShirtSleeveHalf" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Sleeve Half'" placeholder="Shirt Sleeve Half">
+                                        <input class="form-control valid" name="txtShirtSleeveHalf" id="txtShirtSleeveHalf" type="text" value="<?php echo htmlspecialchars($data['txtShirtSleeveHalf']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Sleeve Half'" placeholder="Shirt Sleeve Half">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtShirtCollar">Shirt Collar</label>
-                                        <input class="form-control valid" name="txtShirtCollar" id="txtShirtCollar" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Collar'" placeholder="Shirt Collar">
+                                        <input class="form-control valid" name="txtShirtCollar" id="txtShirtCollar" type="text" value="<?php echo htmlspecialchars($data['txtShirtCollar']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Collar'" placeholder="Shirt Collar">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtShirtCuff">Shirt Cuff</label>
-                                        <input class="form-control valid" name="txtShirtCuff" id="txtShirtCuff" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Cuff'" placeholder="Shirt Cuff">
+                                        <input class="form-control valid" name="txtShirtCuff" id="txtShirtCuff" type="text" value="<?php echo htmlspecialchars($data['txtShirtCuff']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Shirt Cuff'" placeholder="Shirt Cuff">
                                     </div>
                                 </div>
 
@@ -524,49 +565,49 @@ session_start();
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtKurtaLength">Kurta Length</label>
-                                        <input class="form-control valid" name="txtKurtaLength" id="txtKurtaLength" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Length'" placeholder="Kurta Length">
+                                        <input class="form-control valid" name="txtKurtaLength" id="txtKurtaLength" type="text" value="<?php echo htmlspecialchars($data['txtKurtaLength']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Length'" placeholder="Kurta Length">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtKurtaChest">Kurta Chest</label>
-                                        <input class="form-control valid" name="txtKurtaChest" id="txtKurtaChest" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Chest'" placeholder="Kurta Chest">
+                                        <input class="form-control valid" name="txtKurtaChest" id="txtKurtaChest" type="text" value="<?php echo htmlspecialchars($data['txtKurtaChest']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Chest'" placeholder="Kurta Chest">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtKurtaStomach">Kurta Stomach</label>
-                                        <input class="form-control valid" name="txtKurtaStomach" id="txtKurtaStomach" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Stomach'" placeholder="Kurta Stomach">
+                                        <input class="form-control valid" name="txtKurtaStomach" id="txtKurtaStomach" type="text" value="<?php echo htmlspecialchars($data['txtKurtaStomach']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Stomach'" placeholder="Kurta Stomach">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtKurtaShoulder">Kurta Shoulder</label>
-                                        <input class="form-control valid" name="txtKurtaShoulder" id="txtKurtaShoulder" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Shoulder'" placeholder="Kurta Shoulder">
+                                        <input class="form-control valid" name="txtKurtaShoulder" id="txtKurtaShoulder" type="text" value="<?php echo htmlspecialchars($data['txtKurtaShoulder']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Shoulder'" placeholder="Kurta Shoulder">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtKurtaSleeve">Kurta Sleeve</label>
-                                        <input class="form-control valid" name="txtKurtaSleeve" id="txtKurtaSleeve" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Sleeve'" placeholder="Kurta Sleeve">
+                                        <input class="form-control valid" name="txtKurtaSleeve" id="txtKurtaSleeve" type="text" value="<?php echo htmlspecialchars($data['txtKurtaSleeve']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Sleeve'" placeholder="Kurta Sleeve">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtKurtaCollar">Kurta Collar</label>
-                                        <input class="form-control valid" name="txtKurtaCollar" id="txtKurtaCollar" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Collar'" placeholder="Kurta Collar">
+                                        <input class="form-control valid" name="txtKurtaCollar" id="txtKurtaCollar" type="text" value="<?php echo htmlspecialchars($data['txtKurtaCollar']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Collar'" placeholder="Kurta Collar">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtKurtaCuff">Kurta Cuff</label>
-                                        <input class="form-control valid" name="txtKurtaCuff" id="txtKurtaCuff" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Cuff'" placeholder="Kurta Cuff">
+                                        <input class="form-control valid" name="txtKurtaCuff" id="txtKurtaCuff" type="text" value="<?php echo htmlspecialchars($data['txtKurtaCuff']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kurta Cuff'" placeholder="Kurta Cuff">
                                     </div>
                                 </div>
 
@@ -640,7 +681,9 @@ session_start();
 
                     </div>
                     <div class="form-group mt-3">
-                        <button type="submit" class="button button-contactForm boxed-btn">Save</button>
+                        <button type="submit" class="button button-contactForm boxed-btn">Update</button>
+                        <a href="data2.php" class="btn btn-secondary">Cancel</a>
+
                     </div>
                     </form>
                 </div>
@@ -653,13 +696,16 @@ session_start();
         </section>
         <!-- Contact Area End -->
     </main>
-    <footer>
 
+
+
+    <footer>
     </footer>
     <!-- Scroll Up -->
     <div id="back-top">
         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
+
     <!-- JS here -->
 
     <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
@@ -700,7 +746,11 @@ session_start();
     <!-- Jquery Plugins, main Jquery -->
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
-
 </body>
 
 </html>
+
+<?php
+$stmt->close();
+$conn->close();
+?>
