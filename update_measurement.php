@@ -1,10 +1,10 @@
 <?php
 session_start();
 // Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "measurements_db";
+$servername = "localhost"; // Change as needed
+$username = "u754798798_root"; // Change as needed
+$password = "#Pgckot999"; // Change as needed
+$dbname = "u754798798_measurement_db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

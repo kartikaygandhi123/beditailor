@@ -2,9 +2,9 @@
 session_start();
 // Database connection
 $servername = "localhost"; // Change as needed
-$username = "root"; // Change as needed
-$password = ""; // Change as needed
-$dbname = "measurements_db"; // Change to your database name
+$username = "u754798798_root"; // Change as needed
+$password = "#Pgckot999"; // Change as needed
+$dbname = "u754798798_measurement_db"; // Change to your database name
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -108,7 +108,7 @@ $result = $conn->query($sql);
                                         <!-- <button class="genric-btn primary circle small edit-btn" data-id="<?php echo $data['id']; ?>">Edit</button> -->
                                         <a href="edit_measurement.php?id=<?php echo $data['id']; ?>" class="genric-btn primary circle small">Edit</a>
 
-                                        <a href="view_measurement.php?id=<?php echo $data['id']; ?>" class="genric-btn info circle small">View</a>
+                                        <a href="view_measurement2.php?id=<?php echo $data['id']; ?>" class="genric-btn info circle small">View</a>
 
 
                                     </td>

@@ -1,10 +1,10 @@
 <?php
 session_start();
 // Database configuration
-$servername = "localhost"; // Change as necessary
-$username = "root"; // Change as necessary
-$password = ""; // Change as necessary
-$dbname = "measurements_db"; // Change as necessary
+$servername = "localhost"; // Change as needed
+$username = "u754798798_root"; // Change as needed
+$password = "#Pgckot999"; // Change as needed
+$dbname = "u754798798_measurement_db"; // Change as necessary
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -77,10 +77,10 @@ $fields = [
 
 $data = [];
 foreach ($fields as $field) {
-    if (isset($_POST[$field])&& !empty(trim($_POST['txtId']))) {
+    if (isset($_POST[$field]) && !empty(trim($_POST['txtId']))) {
         $data[$field] = $conn->real_escape_string(trim($_POST[$field]));
     } else {
-        $_SESSION['status']= "Unique Id is Required";
+        $_SESSION['status'] = "Unique Id is Required";
         header("Location: gents.php");
 
         die("Error: Field $field is required.");
@@ -90,16 +90,15 @@ foreach ($fields as $field) {
 // Prepare and bind
 $sql = "INSERT INTO measurements (" . implode(", ", array_keys($data)) . ") VALUES ('" . implode("', '", array_values($data)) . "')";
 if ($conn->query($sql) === TRUE) {
-    
-    $_SESSION['status']= "New record created successfully";
+
+    $_SESSION['status'] = "New record created successfully";
     header("Location: gents.php");
 } else {
-  
-    $_SESSION['status']= "Error: " . $sql . "<br>" . $conn->error;
-  
+
+    $_SESSION['status'] = "Error: " . $sql . "<br>" . $conn->error;
+
     header("Location: gents.php");
 }
 
 // Close connection
 $conn->close();
-?>
