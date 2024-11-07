@@ -43,23 +43,23 @@ if ($id) {
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/slicknav.css">
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/progressbar_barfiller.css">
-    <link rel="stylesheet" href="assets/css/gijgo.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/animated-headline.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <link rel="stylesheet" href="assets/css/nice-select.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/css/slicknav.css">
+    <link rel="stylesheet" href="./assets/css/flaticon.css">
+    <link rel="stylesheet" href="./assets/css/progressbar_barfiller.css">
+    <link rel="stylesheet" href="./assets/css/gijgo.css">
+    <link rel="stylesheet" href="./assets/css/animate.min.css">
+    <link rel="stylesheet" href="./assets/css/animated-headline.css">
+    <link rel="stylesheet" href="./assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="./assets/css/themify-icons.css">
+    <link rel="stylesheet" href="./assets/css/slick.css">
+    <link rel="stylesheet" href="./assets/css/nice-select.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <style>
         .row {
             margin-bottom: 27px;
@@ -79,7 +79,7 @@ if ($id) {
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <!-- <img src="assets/img/logo/loder.png" alt=""> -->
+                    <!-- <img src="./assets/img/logo/loder.png" alt=""> -->
                     <h2>Bedi Tailors</h2>
                 </div>
             </div>
@@ -94,22 +94,22 @@ if ($id) {
                     <!-- Logo -->
                     <div class="logo">
                         <a href="index.html">
-                            <!-- <img src="assets/img/logo/logo.png" alt=""> -->
+                            <!-- <img src="./assets/img/logo/logo.png" alt=""> -->
                             <h2>Bedi Tailors</h2>
                         </a>
                     </div>
-                    <div class="header-left  d-flex f-right align-items-center">
+                    <div class="header-left d-flex f-right align-items-center">
                         <!-- Main-menu -->
                         <div class="main-menu f-right d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="services.html">Services</a></li>
-                                    <li><a href="blog.html">Blog</a>
+                                    <li><a href="data2.php">Dashboard</a></li>
+                                    <li>
+                                        <a href="#">measurements</a>
                                         <ul class="submenu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog_details.html">Blog Details</a></li>
+                                            <li><a href="gents.php">Gents</a></li>
+                                            <li><a href="ladies.html">Ladies</a></li>
                                             <li><a href="elements.html">Elements</a></li>
                                         </ul>
                                     </li>
@@ -118,7 +118,7 @@ if ($id) {
                             </nav>
                         </div>
                         <!-- left Btn -->
-                        <div class="header-right-btn f-right d-none d-lg-block  ml-30">
+                        <div class="header-right-btn f-right d-none d-lg-block ml-30">
                             <a href="#" class="header-btn">Visit Us</a>
                         </div>
                     </div>
