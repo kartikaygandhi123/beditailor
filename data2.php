@@ -145,6 +145,9 @@ $result = $conn->query($sql);
 
                                         <a href="view_measurement2.php?id=<?php echo $data['id']; ?>" class="genric-btn info circle small">View</a>
 
+                                        <button class="genric-btn danger circle small" onclick="confirmDelete(<?php echo $data['id']; ?>)">Delete</button>
+
+
 
                                     </td>
                                 </tr>
@@ -187,6 +190,10 @@ $result = $conn->query($sql);
                     'print'
                 ]
             });
+
+
+
+
 
             $('.edit-btn').on('click', function() {
                 const row = $(this).closest('tr');
@@ -236,23 +243,38 @@ $result = $conn->query($sql);
                 $('#cmbShirtCut').val(data[41].innerText);
                 $('#cmbShirtShoulderClip').val(data[42].innerText);
                 $('#cmbShirtAbovePocket').val(data[43].innerText);
-                $('#txtKurtaLength').val(data[44].innerText);
-                $('#txtKurtaChest').val(data[45].innerText);
-                $('#txtKurtaStomach').val(data[46].innerText);
-                $('#txtKurtaShoulder').val(data[47].innerText);
-                $('#txtKurtaSleeve').val(data[48].innerText);
-                $('#txtKurtaCollar').val(data[49].innerText);
-                $('#txtKurtaFrontPlate').val(data[50].innerText);
-                $('#cmbKurtaPocketSide').val(data[51].innerText);
-                $('#cmbKurtaShoulderClip').val(data[52].innerText);
-                $('#cmbKurtaFrontPocket').val(data[53].innerText);
-                $('#cmbKurtaPocketFlap').val(data[54].innerText);
-                $('#cmbKurtaStyle').val(data[55].innerText);
+                $('#txtShirtF1').val(data[44].innerText);
+                $('#txtShirtF2').val(data[45].innerText);
+                $('#txtShirtF3').val(data[46].innerText);
+                $('#txtShirtB1').val(data[47].innerText);
+                $('#txtShirtB2').val(data[48].innerText);
+                $('#txtShirtB3').val(data[49].innerText);
+                $('#txtKurtaLength').val(data[50].innerText);
+                $('#txtKurtaChest').val(data[51].innerText);
+                $('#txtKurtaStomach').val(data[52].innerText);
+                $('#txtKurtaShoulder').val(data[53].innerText);
+                $('#txtKurtaSleeve').val(data[54].innerText);
+                $('#txtKurtaCollar').val(data[55].innerText);
+                $('#txtKurtaFrontPlate').val(data[56].innerText);
+                $('#cmbKurtaPocketSide').val(data[57].innerText);
+                $('#cmbKurtaShoulderClip').val(data[58].innerText);
+                $('#cmbKurtaFrontPocket').val(data[59].innerText);
+                $('#cmbKurtaPocketFlap').val(data[60].innerText);
+                $('#cmbKurtaStyle').val(data[61].innerText);
 
                 $('#editModal').modal('show');
             });
 
+
+
+
         });
+
+        function confirmDelete(id) {
+            if (confirm("Are you sure you want to delete this record?")) {
+                window.location.href = 'delete_measurement.php?id=' + id;
+            }
+        }
     </script>
 </body>
 

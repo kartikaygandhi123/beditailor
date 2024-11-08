@@ -294,75 +294,7 @@ if ($id) {
                             </div>
 
 
-                            <div class="row">
-                                <div class="col-12">
-                                    <h2 class="contact-title">Pajama</h2>
-                                </div>
-                                <div class="col-sm-2">
-                                    <div class="form-group">
-                                        <label for="txtPajamaLength">Pajama Length</label>
-                                        <input class="form-control valid" name="txtPajamaLength" id="txtPajamaLength" type="text" value="<?php echo htmlspecialchars($data['txtPajamaLength']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Length'" placeholder="Pajama Length">
-                                    </div>
-                                </div>
 
-                                <div class="col-sm-2">
-                                    <div class="form-group">
-                                        <label for="txtPajamaHip">Pajama Hip</label>
-                                        <input class="form-control valid" name="txtPajamaHip" id="txtPajamaHip" type="text" value="<?php echo htmlspecialchars($data['txtPajamaHip']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Hip'" placeholder="Pajama Hip">
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-2">
-                                    <div class="form-group">
-                                        <label for="txtPajamaWaist">Pajama Waist</label>
-                                        <input class="form-control valid" name="txtPajamaWaist" id="txtPajamaWaist" type="text" value="<?php echo htmlspecialchars($data['txtPajamaWaist']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Waist'" placeholder="Pajama Waist">
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-2">
-                                    <div class="form-group">
-                                        <label for="txtPajamaBottom">Pajama Bottom</label>
-                                        <input class="form-control valid" name="txtPajamaBottom" id="txtPajamaBottom" type="text" value="<?php echo htmlspecialchars($data['txtPajamaBottom']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Bottom'" placeholder="Pajama Bottom">
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-2">
-                                    <div class="form-group">
-                                        <label for="cmbPajamaPlates">Pajama Plates</label>
-                                        <select class="form-control valid" id="cmbPajamaPlates" name="cmbPajamaPlates">
-                                            <option value="">Please Select</option>
-                                            <option value="ONE">ONE</option>
-                                            <option value="TWO">TWO</option>
-                                            <option value="NO">NO</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-2">
-                                    <div class="form-group">
-                                        <label for="cmbPajamaStyle">Pajama Style</label>
-                                        <select class="form-control valid" id="cmbPajamaStyle" name="cmbPajamaStyle">
-                                            <option value="">Please Select</option>
-                                            <option value="PANTCUT">PANTCUT</option>
-                                            <option value="PANT STYLE">PANT STYLE</option>
-                                            <option value="SADA">SADA</option>
-                                            <option value="PANT CUT + MIANI">PANT CUT + MIANI</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-2">
-                                    <div class="form-group">
-                                        <label for="cmbPajamaLastic">Pajama Lastic</label>
-                                        <select class="form-control valid" id="cmbPajamaLastic" name="cmbPajamaLastic">
-                                            <option value="">Please Select</option>
-                                            <option value="YES">YES</option>
-                                            <option value="NO">NO</option>
-                                            <option value="FRONT BELT BACK LASTIC">FRONT BELT BACK LASTIC</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="row">
                                 <div class="col-12">
@@ -557,6 +489,49 @@ if ($id) {
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="txtShirtF1">F1</label>
+                                        <input class="form-control valid" name="txtShirtF1" id="txtShirtF1" type="text" value="<?php echo htmlspecialchars($data['txtShirtF1']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'F1'" placeholder="F1">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="txtShirtF2">F2</label>
+                                        <input class="form-control valid" name="txtShirtF2" id="txtShirtF2" type="text" value="<?php echo htmlspecialchars($data['txtShirtF2']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'F2'" placeholder="F2">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="txtShirtF3">F3</label>
+                                        <input class="form-control valid" name="txtShirtF3" id="txtShirtF3" type="text" value="<?php echo htmlspecialchars($data['txtShirtF3']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'F3'" placeholder="F3">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="txtShirtB1">B1</label>
+                                        <input class="form-control valid" name="txtShirtB1" id="txtShirtB1" type="text" value="<?php echo htmlspecialchars($data['txtShirtB1']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'B1'" placeholder="B1">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="txtShirtB2">B2</label>
+                                        <input class="form-control valid" name="txtShirtB2" id="txtShirtB2" type="text" value="<?php echo htmlspecialchars($data['txtShirtB2']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'B2'" placeholder="B2">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="txtShirtB3">B3</label>
+                                        <input class="form-control valid" name="txtShirtB3" id="txtShirtB3" type="text" value="<?php echo htmlspecialchars($data['txtShirtB3']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'B3'" placeholder="B3">
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col-12">
@@ -678,7 +653,75 @@ if ($id) {
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="contact-title">Pajama</h2>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="txtPajamaLength">Pajama Length</label>
+                                        <input class="form-control valid" name="txtPajamaLength" id="txtPajamaLength" type="text" value="<?php echo htmlspecialchars($data['txtPajamaLength']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Length'" placeholder="Pajama Length">
+                                    </div>
+                                </div>
 
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="txtPajamaHip">Pajama Hip</label>
+                                        <input class="form-control valid" name="txtPajamaHip" id="txtPajamaHip" type="text" value="<?php echo htmlspecialchars($data['txtPajamaHip']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Hip'" placeholder="Pajama Hip">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="txtPajamaWaist">Pajama Waist</label>
+                                        <input class="form-control valid" name="txtPajamaWaist" id="txtPajamaWaist" type="text" value="<?php echo htmlspecialchars($data['txtPajamaWaist']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Waist'" placeholder="Pajama Waist">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="txtPajamaBottom">Pajama Bottom</label>
+                                        <input class="form-control valid" name="txtPajamaBottom" id="txtPajamaBottom" type="text" value="<?php echo htmlspecialchars($data['txtPajamaBottom']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pajama Bottom'" placeholder="Pajama Bottom">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="cmbPajamaPlates">Pajama Plates</label>
+                                        <select class="form-control valid" id="cmbPajamaPlates" name="cmbPajamaPlates">
+                                            <option value="">Please Select</option>
+                                            <option value="ONE">ONE</option>
+                                            <option value="TWO">TWO</option>
+                                            <option value="NO">NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="cmbPajamaStyle">Pajama Style</label>
+                                        <select class="form-control valid" id="cmbPajamaStyle" name="cmbPajamaStyle">
+                                            <option value="">Please Select</option>
+                                            <option value="PANTCUT">PANTCUT</option>
+                                            <option value="PANT STYLE">PANT STYLE</option>
+                                            <option value="SADA">SADA</option>
+                                            <option value="PANT CUT + MIANI">PANT CUT + MIANI</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="cmbPajamaLastic">Pajama Lastic</label>
+                                        <select class="form-control valid" id="cmbPajamaLastic" name="cmbPajamaLastic">
+                                            <option value="">Please Select</option>
+                                            <option value="YES">YES</option>
+                                            <option value="NO">NO</option>
+                                            <option value="FRONT BELT BACK LASTIC">FRONT BELT BACK LASTIC</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                     <div class="form-group mt-3">
                         <button type="submit" class="button button-contactForm boxed-btn">Update</button>
