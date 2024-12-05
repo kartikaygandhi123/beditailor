@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!Doctype html>
-<html class="no-js" lang="zxx">
+
 
 <head>
     <meta charset="utf-8">
@@ -36,6 +36,10 @@ session_start();
         .contact-title {
             font-size: 23px;
         }
+        .card{
+            box-shadow: 4px 4px 20px;
+            padding: 22px;
+        }
     </style>
 </head>
 
@@ -54,54 +58,60 @@ session_start();
     </div>
     <!-- Preloader Start -->
     <header>
-        <!-- Header Start -->
-        <div class="header-area header_area">
-            <div class="main-header">
-                <div class="header-bottom header-sticky">
-                    <!-- Logo -->
-                    <div class="logo">
-                        <a href="index.html">
-                            <!-- <img src="./assets/img/logo/logo.png" alt=""> -->
-                            <h2>Bedi Tailors</h2>
-                        </a>
-                    </div>
-                    <div class="header-left d-flex f-right align-items-center">
-                        <!-- Main-menu -->
-                        <div class="main-menu f-right d-none d-lg-block">
-                            <nav>
-                                <ul id="navigation">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="data2.php">Dashboard</a></li>
-                                    <li>
-                                        <a href="#">measurements</a>
-                                        <ul class="submenu">
-                                            <li><a href="gents.php">Gents</a></li>
-                                            <li><a href="ladies.html">Ladies</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <!-- left Btn -->
-                        <div class="header-right-btn f-right d-none d-lg-block ml-30">
-                            <a href="#" class="header-btn">Visit Us</a>
-                        </div>
-                    </div>
-                    <!-- Mobile Menu -->
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
-                    </div>
-                </div>
+      <!-- Header Start -->
+      <div class="header-area header_area">
+        <div class="main-header">
+          <div class="header-bottom header-sticky">
+            <!-- Logo -->
+            <div class="logo">
+              <a href="index.html">
+                <!-- <img src="./assets/img/logo/logo.png" alt=""> -->
+                <h2>Bedi Tailors</h2>
+              </a>
             </div>
+            <div class="header-left d-flex f-right align-items-center">
+              <!-- Main-menu -->
+              <div class="main-menu f-right d-none d-lg-block">
+                <nav>
+                  <ul id="navigation">
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                      <a href="#">Dashboard</a>
+                      <ul class="submenu">
+                        <li><a href="data2.php">Gents Data</a></li>
+                        <li><a href="data2_ladies.php">Ladies Data</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#">measurements</a>
+                      <ul class="submenu">
+                        <li><a href="gents.php">Gents</a></li>
+                        <li><a href="ladies.php">Ladies</a></li>
+                        
+                      </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <!-- left Btn -->
+              <!-- <div class="header-right-btn f-right d-none d-lg-block ml-30">
+                <a href="#" class="header-btn">Visit Us</a>
+              </div> -->
+            </div>
+            <!-- Mobile Menu -->
+            <div class="col-12">
+              <div class="mobile_menu d-block d-lg-none"></div>
+            </div>
+          </div>
         </div>
-        <!-- Header End -->
+      </div>
+      <!-- Header End -->
     </header>
     <main>
         <!--?  Contact Area start  -->
         <section class="contact-section">
-            <div class="container">
+            <div class="container card">
                 <?php
                 if (isset($_SESSION['status'])) {
 
@@ -170,6 +180,10 @@ session_start();
                         <label for="txtShirtWaist">Waist</label>
                         <input class="form-control" name="txtShirtWaist" id="txtShirtWaist" type="text" placeholder="Shirt Waist">
                     </div>
+                    <div class="form-group">
+                        <label for="txtShirtHip">Hip</label>
+                        <input class="form-control" name="txtShirtHip" id="txtShirtHip" type="text" placeholder="Shirt Hip">
+                    </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
@@ -179,8 +193,14 @@ session_start();
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="txtShirtSleeve">Sleeve</label>
-                        <input class="form-control" name="txtShirtSleeve" id="txtShirtSleeve" type="text" placeholder="Shirt Sleeve">
+                        <label for="txtShirtSleeveFull">Sleeve Full</label>
+                        <input class="form-control" name="txtShirtSleeveFull" id="txtShirtSleeveFull" type="text" placeholder="Shirt Sleeve Full">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="txtShirtSleeveHalf">Sleeve Half</label>
+                        <input class="form-control" name="txtShirtSleeveHalf" id="txtShirtSleeveHalf" type="text" placeholder="Shirt Sleeve Half">
                     </div>
                 </div>
                 <div class="col-sm-2">
@@ -206,9 +226,15 @@ session_start();
                         <label for="cmbShirtFrontPlate">Front Plate</label>
                         <select class="form-control" name="cmbShirtFrontPlate" id="cmbShirtFrontPlate">
                             <option value="">Please Select</option>
-                            <option value="With Plate">With Plate</option>
-                            <option value="Without Plate">Without Plate</option>
+                            <option value="Side">Side</option>
+                            <option value="Full">Full</option>
                         </select>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="txtShirtPlateSize">Plate Size</label>
+                        <input class="form-control" name="txtShirtPlateSize" id="txtShirtPlateSize" type="text" placeholder="Shirt Plate Size">
                     </div>
                 </div>
                 <div class="col-sm-2">
@@ -216,15 +242,15 @@ session_start();
                         <label for="cmbShirtBackPlate">Back Plate</label>
                         <select class="form-control" name="cmbShirtBackPlate" id="cmbShirtBackPlate">
                             <option value="">Please Select</option>
-                            <option value="With Plate">With Plate</option>
-                            <option value="Without Plate">Without Plate</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="txtShirtBottom">Bottom</label>
-                        <input class="form-control" name="txtShirtBottom" id="txtShirtBottom" type="text" placeholder="Shirt Bottom">
+                        <label for="txtShirtGhera">Ghera</label>
+                        <input class="form-control" name="txtShirtGhera" id="txtShirtGhera" type="text" placeholder="Shirt Ghera">
                     </div>
                 </div>
                  </div>
@@ -251,8 +277,8 @@ session_start();
                         <label for="cmbSalwarBelt">Belt</label>
                         <select class="form-control" name="cmbSalwarBelt" id="cmbSalwarBelt">
                             <option value="">Please Select</option>
-                            <option value="With Belt">With Belt</option>
-                            <option value="Without Belt">Without Belt</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
                         </select>
                     </div>
                 </div>
@@ -437,31 +463,32 @@ session_start();
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="txtShirtFormalPlate">Plate</label>
-                        <select class="form-control" name="txtShirtFormalPlate" id="txtShirtFormalPlate">
+                        <label for="cmbShirtFormalPlate">Plate</label>
+                        <select class="form-control" name="cmbShirtFormalPlate" id="cmbShirtFormalPlate">
                             <option value="">Please Select</option>
-                            <option value="With Belt">With Belt</option>
-                            <option value="Without Belt">Without Belt</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                            <option value="Box">Box</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="txtShirtFormalPatti">Patti</label>
-                        <select class="form-control" name="txtShirtFormalPatti" id="txtShirtFormalPatti">
+                        <label for="cmbShirtFormalPatti">Patti</label>
+                        <select class="form-control" name="cmbShirtFormalPatti" id="cmbShirtFormalPatti">
                             <option value="">Please Select</option>
-                            <option value="With Belt">With Belt</option>
-                            <option value="Without Belt">Without Belt</option>
+                            <option value="Inside">Inside</option>
+                            <option value="Outside">Outside</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="txtShirtFormalCut">Cut</label>
-                        <select class="form-control" name="txtShirtFormalCut" id="txtShirtFormalCut">
+                        <label for="cmbShirtFormalCut">Cut</label>
+                        <select class="form-control" name="cmbShirtFormalCut" id="cmbShirtFormalCut">
                             <option value="">Please Select</option>
-                            <option value="With Belt">With Belt</option>
-                            <option value="Without Belt">Without Belt</option>
+                            <option value="Straight">Straight</option>
+                            <option value="American">American</option>
                         </select>
                     </div>
                 </div>

@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+
 // Database configuration
 $servername = "localhost"; // Change as needed
 $username = "u754798798_root"; // Change as needed
@@ -23,14 +25,17 @@ $fields = [
 'txtShirtLength',
 'txtShirtChest',
 'txtShirtWaist',
+'txtShirtHip',
 'txtShirtShoulder',
-'txtShirtSleeve',
+'txtShirtSleeveFull',
+'txtShirtSleeveHalf',
 'txtShirtCollarBan',
 'txtShirtNeckFront',
 'txtShirtNeckBack',
 'cmbShirtFrontPlate',
+'txtShirtPlateSize',
 'cmbShirtBackPlate',
-'txtShirtBottom',
+'txtShirtGhera',
 'txtSalwarLength',
 'txtSalwarBottom',
 'cmbSalwarBelt',
@@ -63,6 +68,7 @@ $fields = [
 'cmbShirtFormalPatti',
 'cmbShirtFormalCut'
 ];
+
 $data = [];
 foreach ($fields as $field) {
     if (isset($_POST[$field]) && !empty(trim($_POST['txtId']))) {
@@ -90,3 +96,6 @@ if ($conn->query($sql) === TRUE) {
 
 // Close connection
 $conn->close();
+
+
+?>

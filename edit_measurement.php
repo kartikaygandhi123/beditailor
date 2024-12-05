@@ -87,49 +87,55 @@ if ($id) {
     </div>
 
     <header>
-        <!-- Header Start -->
-        <div class="header-area header_area">
-            <div class="main-header">
-                <div class="header-bottom header-sticky">
-                    <!-- Logo -->
-                    <div class="logo">
-                        <a href="index.html">
-                            <!-- <img src="./assets/img/logo/logo.png" alt=""> -->
-                            <h2>Bedi Tailors</h2>
-                        </a>
-                    </div>
-                    <div class="header-left d-flex f-right align-items-center">
-                        <!-- Main-menu -->
-                        <div class="main-menu f-right d-none d-lg-block">
-                            <nav>
-                                <ul id="navigation">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="data2.php">Dashboard</a></li>
-                                    <li>
-                                        <a href="#">measurements</a>
-                                        <ul class="submenu">
-                                            <li><a href="gents.php">Gents</a></li>
-                                            <li><a href="ladies.html">Ladies</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <!-- left Btn -->
-                        <div class="header-right-btn f-right d-none d-lg-block ml-30">
-                            <a href="#" class="header-btn">Visit Us</a>
-                        </div>
-                    </div>
-                    <!-- Mobile Menu -->
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
-                    </div>
-                </div>
+      <!-- Header Start -->
+      <div class="header-area header_area">
+        <div class="main-header">
+          <div class="header-bottom header-sticky">
+            <!-- Logo -->
+            <div class="logo">
+              <a href="index.html">
+                <!-- <img src="./assets/img/logo/logo.png" alt=""> -->
+                <h2>Bedi Tailors</h2>
+              </a>
             </div>
+            <div class="header-left d-flex f-right align-items-center">
+              <!-- Main-menu -->
+              <div class="main-menu f-right d-none d-lg-block">
+                <nav>
+                  <ul id="navigation">
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                      <a href="#">Dashboard</a>
+                      <ul class="submenu">
+                        <li><a href="data2.php">Gents Data</a></li>
+                        <li><a href="data2_ladies.php">Ladies Data</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#">measurements</a>
+                      <ul class="submenu">
+                        <li><a href="gents.php">Gents</a></li>
+                        <li><a href="ladies.php">Ladies</a></li>
+                        
+                      </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <!-- left Btn -->
+              <!-- <div class="header-right-btn f-right d-none d-lg-block ml-30">
+                <a href="#" class="header-btn">Visit Us</a>
+              </div> -->
+            </div>
+            <!-- Mobile Menu -->
+            <div class="col-12">
+              <div class="mobile_menu d-block d-lg-none"></div>
+            </div>
+          </div>
         </div>
-        <!-- Header End -->
+      </div>
+      <!-- Header End -->
     </header>
 
 
@@ -159,10 +165,7 @@ if ($id) {
                             <input type="hidden" name="id" value="<?php echo htmlspecialchars($data['id']); ?>">
 
                             <div class="row">
-                                <div class="col-12">
-                                    <h2 class="contact-title">Coat</h2>
-                                </div>
-                                <div class="col-sm-2">
+                            <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="txtId">ID</label>
                                         <input class="form-control valid" name="txtId" id="txtId" type="text" value="<?php echo htmlspecialchars($data['txtId']); ?>">
@@ -190,6 +193,15 @@ if ($id) {
                                         <input class="form-control valid" name="txtPhone" id="txtPhone" type="text" value="<?php echo htmlspecialchars($data['txtPhone']); ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" placeholder="Phone">
                                     </div>
                                 </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="contact-title">Coat</h2>
+                                </div>
+                               
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
@@ -238,9 +250,9 @@ if ($id) {
                                         <label for="cmbCoatStyle">Coat Style</label>
                                         <select class="form-control valid" id="cmbCoatStyle" name="cmbCoatStyle">
                                             <option value="">Please Select</option>
-                                            <option value="2 BUTTON">2 BUTTON</option>
-                                            <option value="3 BUTTON">3 BUTTON</option>
-                                            <option value="NEHRU STYLE">NEHRU STYLE</option>
+                                            <option value="2 BUTTON" <?php echo (isset($data['cmbCoatStyle']) && $data['cmbCoatStyle'] == '2 BUTTON') ? 'selected' : ''; ?>>2 BUTTON</option>
+                                            <option value="3 BUTTON" <?php echo (isset($data['cmbCoatStyle']) && $data['cmbCoatStyle'] == '3 BUTTON') ? 'selected' : ''; ?>>3 BUTTON</option>
+                                            <option value="NEHRU STYLE" <?php echo (isset($data['cmbCoatStyle']) && $data['cmbCoatStyle'] == 'NEHRU STYLE') ? 'selected' : ''; ?>>NEHRU STYLE</option>
                                         </select>
                                     </div>
                                 </div>
@@ -250,8 +262,10 @@ if ($id) {
                                         <label for="cmbCoatCollar">Coat Collar</label>
                                         <select class="form-control valid" id="cmbCoatCollar" name="cmbCoatCollar">
                                             <option value="">Please Select</option>
-                                            <option value="DOUBLE PRESS">DOUBLE PRESS</option>
-                                            <option value="SINGLE PRESS">SINGLE PRESS</option>
+                                            <option value="DOUBLE PRESS" <?php echo (isset($data['cmbCoatCollar']) && $data['cmbCoatCollar'] == 'DOUBLE PRESS') ? 'selected' : ''; ?>>DOUBLE PRESS</option>
+                                            <option value="SINGLE PRESS" <?php echo (isset($data['cmbCoatCollar']) && $data['cmbCoatCollar'] == 'SINGLE PRESS') ? 'selected' : ''; ?>>SINGLE PRESS</option>
+                                            <option value="Gown Collar" <?php echo (isset($data['cmbCoatCollar']) && $data['cmbCoatCollar'] == 'Gown Collar') ? 'selected' : ''; ?>>Gown Collar</option>
+
                                         </select>
                                     </div>
                                 </div>
@@ -261,9 +275,9 @@ if ($id) {
                                         <label for="cmbCoatCut">Coat Cut</label>
                                         <select class="form-control valid" id="cmbCoatCut" name="cmbCoatCut">
                                             <option value="">Please Select</option>
-                                            <option value="BACK Cut">BACK Cut</option>
-                                            <option value="SIDE Cut">SIDE Cut</option>
-                                            <option value="NO Cut">NO Cut</option>
+                                            <option value="BACK Cut" <?php echo (isset($data['cmbCoatCut']) && $data['cmbCoatCut'] == 'BACK Cut') ? 'selected' : ''; ?>>BACK Cut</option>
+                                            <option value="SIDE Cut" <?php echo (isset($data['cmbCoatCut']) && $data['cmbCoatCut'] == 'SIDE Cut') ? 'selected' : ''; ?>>SIDE Cut</option>
+                                            <option value="NO Cut" <?php echo (isset($data['cmbCoatCut']) && $data['cmbCoatCut'] == 'NO Cut') ? 'selected' : ''; ?>>NO Cut</option>
                                         </select>
                                     </div>
                                 </div>
@@ -278,9 +292,9 @@ if ($id) {
                                         <label for="cmbJacketStyle">Jacket Style</label>
                                         <select class="form-control valid" id="cmbJacketStyle" name="cmbJacketStyle">
                                             <option value="">Please Select</option>
-                                            <option value="V-NECK">V-NECK</option>
-                                            <option value="NEHRU STYLE">NEHRU STYLE</option>
-                                            <option value="DOUBLE BREAST">DOUBLE BREAST</option>
+                                            <option value="V-NECK" <?php echo (isset($data['cmbJacketStyle']) && $data['cmbJacketStyle'] == 'V-NECK') ? 'selected' : ''; ?>>V-NECK</option>
+                                            <option value="NEHRU STYLE" <?php echo (isset($data['cmbJacketStyle']) && $data['cmbJacketStyle'] == 'NEHRU STYLE') ? 'selected' : ''; ?>>NEHRU STYLE</option>
+                                            <option value="DOUBLE BREAST" <?php echo (isset($data['cmbJacketStyle']) && $data['cmbJacketStyle'] == 'DOUBLE BREAST') ? 'selected' : ''; ?>>DOUBLE BREAST</option>
                                         </select>
                                     </div>
                                 </div>
@@ -354,8 +368,8 @@ if ($id) {
                                         <label for="cmbPantPocket">Pant Pocket</label>
                                         <select class="form-control valid" id="cmbPantPocket" name="cmbPantPocket">
                                             <option value="">Please Select</option>
-                                            <option value="Side">Side</option>
-                                            <option value="cross">cross</option>
+                                            <option value="Side" <?php echo (isset($data['cmbPantPocket']) && $data['cmbPantPocket'] == 'Side') ? 'selected' : ''; ?>>Side</option>
+                                            <option value="cross"  <?php echo (isset($data['cmbPantPocket']) && $data['cmbPantPocket'] == 'cross') ? 'selected' : ''; ?>>cross</option>
                                         </select>
                                     </div>
                                 </div>
@@ -365,9 +379,9 @@ if ($id) {
                                         <label for="cmbPantPlate">Pant Plate</label>
                                         <select class="form-control valid" id="cmbPantPlate" name="cmbPantPlate">
                                             <option value="">Please Select</option>
-                                            <option value="No">No</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
+                                            <option value="No" <?php echo (isset($data['cmbPantPlate']) && $data['cmbPantPlate'] == 'No') ? 'selected' : ''; ?>>No</option>
+                                            <option value="1" <?php echo (isset($data['cmbPantPlate']) && $data['cmbPantPlate'] == '1') ? 'selected' : ''; ?>>1</option>
+                                            <option value="2" <?php echo (isset($data['cmbPantPlate']) && $data['cmbPantPlate'] == '2') ? 'selected' : ''; ?>>2</option>
                                         </select>
                                     </div>
                                 </div>
@@ -437,8 +451,8 @@ if ($id) {
                                         <label for="cmbShirtBackPlate">Shirt Back Plate</label>
                                         <select class="form-control valid" id="cmbShirtBackPlate" name="cmbShirtBackPlate">
                                             <option value="">Please Select</option>
-                                            <option value="YES">YES</option>
-                                            <option value="NO">NO</option>
+                                            <option value="YES" <?php echo (isset($data['cmbShirtBackPlate']) && $data['cmbShirtBackPlate'] == 'YES') ? 'selected' : ''; ?>>YES</option>
+                                            <option value="NO" <?php echo (isset($data['cmbShirtBackPlate']) && $data['cmbShirtBackPlate'] == 'NO') ? 'selected' : ''; ?>>NO</option>
                                         </select>
                                     </div>
                                 </div>
@@ -448,8 +462,8 @@ if ($id) {
                                         <label for="cmbShirtPatti">Shirt Patti</label>
                                         <select class="form-control valid" id="cmbShirtPatti" name="cmbShirtPatti">
                                             <option value="">Please Select</option>
-                                            <option value="INSIDE">INSIDE</option>
-                                            <option value="OUTSIDE">OUTSIDE</option>
+                                            <option value="INSIDE" <?php echo (isset($data['cmbShirtPatti']) && $data['cmbShirtPatti'] == 'INSIDE') ? 'selected' : ''; ?>>INSIDE</option>
+                                            <option value="OUTSIDE" <?php echo (isset($data['cmbShirtPatti']) && $data['cmbShirtPatti'] == 'OUTSIDE') ? 'selected' : ''; ?>>OUTSIDE</option>
                                         </select>
                                     </div>
                                 </div>
@@ -459,8 +473,8 @@ if ($id) {
                                         <label for="cmbShirtCut">Shirt Cut</label>
                                         <select class="form-control valid" id="cmbShirtCut" name="cmbShirtCut">
                                             <option value="">Please Select</option>
-                                            <option value="STRAIGHT">STRAIGHT</option>
-                                            <option value="AMERICAN">AMERICAN</option>
+                                            <option value="STRAIGHT" <?php echo (isset($data['cmbShirtCut']) && $data['cmbShirtCut'] == 'STRAIGHT') ? 'selected' : ''; ?>>STRAIGHT</option>
+                                            <option value="AMERICAN" <?php echo (isset($data['cmbShirtCut']) && $data['cmbShirtCut'] == 'AMERICAN') ? 'selected' : ''; ?>>AMERICAN</option>
                                         </select>
                                     </div>
                                 </div>
@@ -470,8 +484,8 @@ if ($id) {
                                         <label for="cmbShirtShoulderClip">Shirt Shoulder Clip</label>
                                         <select class="form-control valid" id="cmbShirtShoulderClip" name="cmbShirtShoulderClip">
                                             <option value="">Please Select</option>
-                                            <option value="YES">YES</option>
-                                            <option value="NO">NO</option>
+                                            <option value="YES" <?php echo (isset($data['cmbShirtShoulderClip']) && $data['cmbShirtShoulderClip'] == 'YES') ? 'selected' : ''; ?>>YES</option>
+                                            <option value="NO" <?php echo (isset($data['cmbShirtShoulderClip']) && $data['cmbShirtShoulderClip'] == 'NO') ? 'selected' : ''; ?>>NO</option>
                                         </select>
                                     </div>
                                 </div>
@@ -481,9 +495,9 @@ if ($id) {
                                         <label for="cmbShirtAbovePocket">Shirt Above Pocket</label>
                                         <select class="form-control valid" id="cmbShirtAbovePocket" name="cmbShirtAbovePocket">
                                             <option value="">Please Select</option>
-                                            <option value="ONE">ONE</option>
-                                            <option value="TWO">TWO</option>
-                                            <option value="NO">NO</option>
+                                            <option value="ONE" <?php echo (isset($data['cmbShirtAbovePocket']) && $data['cmbShirtAbovePocket'] == 'ONE') ? 'selected' : ''; ?>>ONE</option>
+                                            <option value="TWO" <?php echo (isset($data['cmbShirtAbovePocket']) && $data['cmbShirtAbovePocket'] == 'TWO') ? 'selected' : ''; ?>>TWO</option>
+                                            <option value="NO" <?php echo (isset($data['cmbShirtAbovePocket']) && $data['cmbShirtAbovePocket'] == 'NO') ? 'selected' : ''; ?>>NO</option>
                                         </select>
                                     </div>
                                 </div>
@@ -591,8 +605,8 @@ if ($id) {
                                         <label for="cmbKurtaFrontPlate">Kurta Front Plate</label>
                                         <select class="form-control valid" id="cmbKurtaFrontPlate" name="cmbKurtaFrontPlate">
                                             <option value="">Please Select</option>
-                                            <option value="YES">YES</option>
-                                            <option value="NO">NO</option>
+                                            <option value="YES" <?php echo (isset($data['cmbKurtaFrontPlate']) && $data['cmbKurtaFrontPlate'] == 'YES') ? 'selected' : ''; ?>>YES</option>
+                                            <option value="NO" <?php echo (isset($data['cmbKurtaFrontPlate']) && $data['cmbKurtaFrontPlate'] == 'NO') ? 'selected' : ''; ?>>NO</option>
                                         </select>
                                     </div>
                                 </div>
@@ -602,8 +616,8 @@ if ($id) {
                                         <label for="cmbKurtaPocketSide">Kurta Pocket Side</label>
                                         <select class="form-control valid" id="cmbKurtaPocketSide" name="cmbKurtaPocketSide">
                                             <option value="">Please Select</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
+                                            <option value="1" <?php echo (isset($data['cmbKurtaPocketSide']) && $data['cmbKurtaPocketSide'] == '1') ? 'selected' : ''; ?>>1</option>
+                                            <option value="2" <?php echo (isset($data['cmbKurtaPocketSide']) && $data['cmbKurtaPocketSide'] == '2') ? 'selected' : ''; ?>>2</option>
                                         </select>
                                     </div>
                                 </div>
@@ -613,8 +627,8 @@ if ($id) {
                                         <label for="cmbKurtaShoulderClip">Kurta Shoulder Clip</label>
                                         <select class="form-control valid" id="cmbKurtaShoulderClip" name="cmbKurtaShoulderClip">
                                             <option value="">Please Select</option>
-                                            <option value="YES">YES</option>
-                                            <option value="NO">NO</option>
+                                            <option value="YES" <?php echo (isset($data['cmbKurtaShoulderClip']) && $data['cmbKurtaShoulderClip'] == 'YES') ? 'selected' : ''; ?>>YES</option>
+                                            <option value="NO" <?php echo (isset($data['cmbKurtaShoulderClip']) && $data['cmbKurtaShoulderClip'] == 'NO') ? 'selected' : ''; ?>>NO</option>
                                         </select>
                                     </div>
                                 </div>
@@ -624,8 +638,8 @@ if ($id) {
                                         <label for="cmbKurtaFrontPocket">Kurta Front Pocket</label>
                                         <select class="form-control valid" id="cmbKurtaFrontPocket" name="cmbKurtaFrontPocket">
                                             <option value="">Please Select</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
+                                            <option value="1" <?php echo (isset($data['cmbKurtaFrontPocket']) && $data['cmbKurtaFrontPocket'] == '1') ? 'selected' : ''; ?>>1</option>
+                                            <option value="2" <?php echo (isset($data['cmbKurtaFrontPocket']) && $data['cmbKurtaFrontPocket'] == '2') ? 'selected' : ''; ?>>2</option>
                                         </select>
                                     </div>
                                 </div>
@@ -635,8 +649,8 @@ if ($id) {
                                         <label for="cmbKurtaPocketFlap">Kurta Pocket Flap</label>
                                         <select class="form-control valid" id="cmbKurtaPocketFlap" name="cmbKurtaPocketFlap">
                                             <option value="">Please Select</option>
-                                            <option value="YES">YES</option>
-                                            <option value="NO">NO</option>
+                                            <option value="YES" <?php echo (isset($data['cmbKurtaPocketFlap']) && $data['cmbKurtaPocketFlap'] == 'YES') ? 'selected' : ''; ?>>YES</option>
+                                            <option value="NO" <?php echo (isset($data['cmbKurtaPocketFlap']) && $data['cmbKurtaPocketFlap'] == 'NO') ? 'selected' : ''; ?>>NO</option>
                                         </select>
                                     </div>
                                 </div>
@@ -646,8 +660,8 @@ if ($id) {
                                         <label for="cmbKurtaStyle">Kurta Style</label>
                                         <select class="form-control valid" id="cmbKurtaStyle" name="cmbKurtaStyle">
                                             <option value="">Please Select</option>
-                                            <option value="PUNJABI">PUNJABI</option>
-                                            <option value="BENGALI">BENGALI</option>
+                                            <option value="PUNJABI" <?php echo (isset($data['cmbKurtaStyle']) && $data['cmbKurtaStyle'] == 'PUNJABI') ? 'selected' : ''; ?>>PUNJABI</option>
+                                            <option value="BENGALI" <?php echo (isset($data['cmbKurtaStyle']) && $data['cmbKurtaStyle'] == 'BENGALI') ? 'selected' : ''; ?>>BENGALI</option>
                                         </select>
                                     </div>
                                 </div>
@@ -690,9 +704,9 @@ if ($id) {
                                         <label for="cmbPajamaPlates">Pajama Plates</label>
                                         <select class="form-control valid" id="cmbPajamaPlates" name="cmbPajamaPlates">
                                             <option value="">Please Select</option>
-                                            <option value="ONE">ONE</option>
-                                            <option value="TWO">TWO</option>
-                                            <option value="NO">NO</option>
+                                            <option value="ONE" <?php echo (isset($data['cmbPajamaPlates']) && $data['cmbPajamaPlates'] == 'ONE') ? 'selected' : ''; ?>>ONE</option>
+                                            <option value="TWO" <?php echo (isset($data['cmbPajamaPlates']) && $data['cmbPajamaPlates'] == 'TWO') ? 'selected' : ''; ?>>TWO</option>
+                                            <option value="NO" <?php echo (isset($data['cmbPajamaPlates']) && $data['cmbPajamaPlates'] == 'NO') ? 'selected' : ''; ?>>NO</option>
                                         </select>
                                     </div>
                                 </div>
@@ -702,10 +716,10 @@ if ($id) {
                                         <label for="cmbPajamaStyle">Pajama Style</label>
                                         <select class="form-control valid" id="cmbPajamaStyle" name="cmbPajamaStyle">
                                             <option value="">Please Select</option>
-                                            <option value="PANTCUT">PANTCUT</option>
-                                            <option value="PANT STYLE">PANT STYLE</option>
-                                            <option value="SADA">SADA</option>
-                                            <option value="PANT CUT + MIANI">PANT CUT + MIANI</option>
+                                            <option value="PANTCUT" <?php echo (isset($data['cmbPajamaStyle']) && $data['cmbPajamaStyle'] == 'PANTCUT') ? 'selected' : ''; ?>>PANTCUT</option>
+                                            <option value="PANT STYLE" <?php echo (isset($data['cmbPajamaStyle']) && $data['cmbPajamaStyle'] == 'PANT STYLE') ? 'selected' : ''; ?>>PANT STYLE</option>
+                                            <option value="SADA" <?php echo (isset($data['cmbPajamaStyle']) && $data['cmbPajamaStyle'] == 'SADA') ? 'selected' : ''; ?>>SADA</option>
+                                            <option value="PANT CUT + MIANI" <?php echo (isset($data['cmbPajamaStyle']) && $data['cmbPajamaStyle'] == 'PANT CUT + MIANI') ? 'selected' : ''; ?>>PANT CUT + MIANI</option>
                                         </select>
                                     </div>
                                 </div>
@@ -715,9 +729,9 @@ if ($id) {
                                         <label for="cmbPajamaLastic">Pajama Lastic</label>
                                         <select class="form-control valid" id="cmbPajamaLastic" name="cmbPajamaLastic">
                                             <option value="">Please Select</option>
-                                            <option value="YES">YES</option>
-                                            <option value="NO">NO</option>
-                                            <option value="FRONT BELT BACK LASTIC">FRONT BELT BACK LASTIC</option>
+                                            <option value="YES" <?php echo (isset($data['cmbPajamaLastic']) && $data['cmbPajamaLastic'] == 'YES') ? 'selected' : ''; ?>>YES</option>
+                                            <option value="NO"  <?php echo (isset($data['cmbPajamaLastic']) && $data['cmbPajamaLastic'] == 'NO') ? 'selected' : ''; ?>>NO</option>
+                                            <option value="FRONT BELT BACK LASTIC"  <?php echo (isset($data['cmbPajamaLastic']) && $data['cmbPajamaLastic'] == 'FRONT BELT BACK LASTIC') ? 'selected' : ''; ?>>FRONT BELT BACK LASTIC</option>
                                         </select>
                                     </div>
                                 </div>

@@ -51,60 +51,72 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <style>
+      .card{
+        box-shadow: 1px 1px 14px;
+        padding: 28px;
+      }
+    </style>
 </head>
 
 
 <body>
     <!-- Header and Navigation -->
     <header>
-        <!-- Header Start -->
-        <div class="header-area header_area">
-            <div class="main-header">
-                <div class="header-bottom header-sticky">
-                    <!-- Logo -->
-                    <div class="logo">
-                        <a href="index.html">
-                            <!-- <img src="./assets/img/logo/logo.png" alt=""> -->
-                            <h2>Bedi Tailors</h2>
-                        </a>
-                    </div>
-                    <div class="header-left d-flex f-right align-items-center">
-                        <!-- Main-menu -->
-                        <div class="main-menu f-right d-none d-lg-block">
-                            <nav>
-                                <ul id="navigation">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="data2.php">Dashboard</a></li>
-                                    <li>
-                                        <a href="#">measurements</a>
-                                        <ul class="submenu">
-                                            <li><a href="gents.php">Gents</a></li>
-                                            <li><a href="ladies.html">Ladies</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <!-- left Btn -->
-                        <div class="header-right-btn f-right d-none d-lg-block ml-30">
-                            <a href="#" class="header-btn">Visit Us</a>
-                        </div>
-                    </div>
-                    <!-- Mobile Menu -->
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
-                    </div>
-                </div>
+      <!-- Header Start -->
+      <div class="header-area header_area">
+        <div class="main-header">
+          <div class="header-bottom header-sticky">
+            <!-- Logo -->
+            <div class="logo">
+              <a href="index.html">
+                <!-- <img src="./assets/img/logo/logo.png" alt=""> -->
+                <h2>Bedi Tailors</h2>
+              </a>
             </div>
+            <div class="header-left d-flex f-right align-items-center">
+              <!-- Main-menu -->
+              <div class="main-menu f-right d-none d-lg-block">
+                <nav>
+                  <ul id="navigation">
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                      <a href="#">Dashboard</a>
+                      <ul class="submenu">
+                        <li><a href="data2.php">Gents Data</a></li>
+                        <li><a href="data2_ladies.php">Ladies Data</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#">measurements</a>
+                      <ul class="submenu">
+                        <li><a href="gents.php">Gents</a></li>
+                        <li><a href="ladies.php">Ladies</a></li>
+                        
+                      </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <!-- left Btn -->
+              <!-- <div class="header-right-btn f-right d-none d-lg-block ml-30">
+                <a href="#" class="header-btn">Visit Us</a>
+              </div> -->
+            </div>
+            <!-- Mobile Menu -->
+            <div class="col-12">
+              <div class="mobile_menu d-block d-lg-none"></div>
+            </div>
+          </div>
         </div>
-        <!-- Header End -->
+      </div>
+      <!-- Header End -->
     </header>
 
     <!-- Dashboard Content -->
     <main>
-        <div class="container mt-5">
+        <div class="container card mt-5">
 
             <?php
             if (isset($_SESSION['status'])) {
@@ -118,7 +130,7 @@ $result = $conn->query($sql);
             ?>
 
 
-            <h2 class="text-center mb-4">Dashboard</h2>
+            <h2 class="text-center mb-4">Gents Dashboard</h2>
             <div class="table-responsive">
                 <table id="dashboardTable" class="table table-striped table-bordered" style="width:100%">
                     <thead>

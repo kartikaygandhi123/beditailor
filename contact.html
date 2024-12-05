@@ -60,13 +60,19 @@
                 <nav>
                   <ul id="navigation">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="data2.php">Dashboard</a></li>
+                    <li>
+                      <a href="#">Dashboard</a>
+                      <ul class="submenu">
+                        <li><a href="data2.php">Gents Data</a></li>
+                        <li><a href="data2_ladies.php">Ladies Data</a></li>
+                      </ul>
+                    </li>
                     <li>
                       <a href="#">measurements</a>
                       <ul class="submenu">
                         <li><a href="gents.php">Gents</a></li>
                         <li><a href="ladies.html">Ladies</a></li>
-                        <li><a href="elements.html">Elements</a></li>
+                        
                       </ul>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
@@ -74,9 +80,9 @@
                 </nav>
               </div>
               <!-- left Btn -->
-              <div class="header-right-btn f-right d-none d-lg-block ml-30">
+              <!-- <div class="header-right-btn f-right d-none d-lg-block ml-30">
                 <a href="#" class="header-btn">Visit Us</a>
-              </div>
+              </div> -->
             </div>
             <!-- Mobile Menu -->
             <div class="col-12">
@@ -133,79 +139,7 @@
             <div class="col-12">
               <h2 class="contact-title">Get in Touch</h2>
             </div>
-            <div class="col-lg-8">
-              <form
-                class="form-contact contact_form"
-                action="contact_process.php"
-                method="post"
-                id="contactForm"
-                novalidate="novalidate"
-              >
-                <div class="row">
-                  <div class="col-12">
-                    <div class="form-group">
-                      <textarea
-                        class="form-control w-100"
-                        name="message"
-                        id="message"
-                        cols="30"
-                        rows="9"
-                        onfocus="this.placeholder = ''"
-                        onblur="this.placeholder = 'Enter Message'"
-                        placeholder=" Enter Message"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <input
-                        class="form-control valid"
-                        name="name"
-                        id="name"
-                        type="text"
-                        onfocus="this.placeholder = ''"
-                        onblur="this.placeholder = 'Enter your name'"
-                        placeholder="Enter your name"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <input
-                        class="form-control valid"
-                        name="email"
-                        id="email"
-                        type="email"
-                        onfocus="this.placeholder = ''"
-                        onblur="this.placeholder = 'Enter email address'"
-                        placeholder="Email"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-group">
-                      <input
-                        class="form-control"
-                        name="subject"
-                        id="subject"
-                        type="text"
-                        onfocus="this.placeholder = ''"
-                        onblur="this.placeholder = 'Enter Subject'"
-                        placeholder="Enter Subject"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group mt-3">
-                  <button
-                    type="submit"
-                    class="button button-contactForm boxed-btn"
-                  >
-                    Send
-                  </button>
-                </div>
-              </form>
-            </div>
+            
             <div class="col-lg-3 offset-lg-1">
               <div class="media contact-info">
                 <span class="contact-info__icon"><i class="ti-home"></i></span>

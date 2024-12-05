@@ -36,6 +36,10 @@ session_start();
         .contact-title {
             font-size: 23px;
         }
+        .card{
+            box-shadow: 4px 4px 20px;
+            padding: 22px;
+        }
     </style>
 </head>
 
@@ -54,54 +58,60 @@ session_start();
     </div>
     <!-- Preloader Start -->
     <header>
-        <!-- Header Start -->
-        <div class="header-area header_area">
-            <div class="main-header">
-                <div class="header-bottom header-sticky">
-                    <!-- Logo -->
-                    <div class="logo">
-                        <a href="index.html">
-                            <!-- <img src="./assets/img/logo/logo.png" alt=""> -->
-                            <h2>Bedi Tailors</h2>
-                        </a>
-                    </div>
-                    <div class="header-left d-flex f-right align-items-center">
-                        <!-- Main-menu -->
-                        <div class="main-menu f-right d-none d-lg-block">
-                            <nav>
-                                <ul id="navigation">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="data2.php">Dashboard</a></li>
-                                    <li>
-                                        <a href="#">measurements</a>
-                                        <ul class="submenu">
-                                            <li><a href="gents.php">Gents</a></li>
-                                            <li><a href="ladies.html">Ladies</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <!-- left Btn -->
-                        <div class="header-right-btn f-right d-none d-lg-block ml-30">
-                            <a href="#" class="header-btn">Visit Us</a>
-                        </div>
-                    </div>
-                    <!-- Mobile Menu -->
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
-                    </div>
-                </div>
+      <!-- Header Start -->
+      <div class="header-area header_area">
+        <div class="main-header">
+          <div class="header-bottom header-sticky">
+            <!-- Logo -->
+            <div class="logo">
+              <a href="index.html">
+                <!-- <img src="./assets/img/logo/logo.png" alt=""> -->
+                <h2>Bedi Tailors</h2>
+              </a>
             </div>
+            <div class="header-left d-flex f-right align-items-center">
+              <!-- Main-menu -->
+              <div class="main-menu f-right d-none d-lg-block">
+                <nav>
+                  <ul id="navigation">
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                      <a href="#">Dashboard</a>
+                      <ul class="submenu">
+                        <li><a href="data2.php">Gents Data</a></li>
+                        <li><a href="data2_ladies.php">Ladies Data</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#">measurements</a>
+                      <ul class="submenu">
+                        <li><a href="gents.php">Gents</a></li>
+                        <li><a href="ladies.php">Ladies</a></li>
+                        
+                      </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <!-- left Btn -->
+              <!-- <div class="header-right-btn f-right d-none d-lg-block ml-30">
+                <a href="#" class="header-btn">Visit Us</a>
+              </div> -->
+            </div>
+            <!-- Mobile Menu -->
+            <div class="col-12">
+              <div class="mobile_menu d-block d-lg-none"></div>
+            </div>
+          </div>
         </div>
-        <!-- Header End -->
+      </div>
+      <!-- Header End -->
     </header>
     <main>
         <!--?  Contact Area start  -->
         <section class="contact-section">
-            <div class="container">
+            <div class="container card">
                 <?php
                 if (isset($_SESSION['status'])) {
 
@@ -215,6 +225,7 @@ session_start();
                                             <option value="">Please Select</option>
                                             <option value="DOUBLE PRESS">DOUBLE PRESS</option>
                                             <option value="SINGLE PRESS">SINGLE PRESS</option>
+                                            <option value="Gown Collar">Gown Collar</option>
                                         </select>
                                     </div>
                                 </div>

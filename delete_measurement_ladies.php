@@ -19,7 +19,7 @@ $id = $_GET['id'] ?? null;
 
 if ($id) {
     // Prepare and execute the deletion query
-    $stmt = $conn->prepare("DELETE FROM measurements WHERE id = ?");
+    $stmt = $conn->prepare("DELETE FROM measurements_ladies WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
 
@@ -35,5 +35,5 @@ if ($id) {
 }
 
 $conn->close();
-header("Location: data2.php"); // Redirect to index.php with session message
+header("Location: data2_ladies.php"); // Redirect to index.php with session message
 exit();
