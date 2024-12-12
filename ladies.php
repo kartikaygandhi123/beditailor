@@ -338,6 +338,39 @@ session_start();
                         <input class="form-control" name="txtPlazoBottom" id="txtPlazoBottom" type="text" placeholder="Plazo Bottom">
                     </div>
                 </div>
+
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="cmbPlazoSideZip">Side Zip</label>
+                        <select class="form-control" name="cmbPlazoSideZip" id="cmbPlazoSideZip">
+                            <option value="">Please Select</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="cmbPlazoSidePocket">Side Pocket</label>
+                        <select class="form-control" name="cmbPlazoSidePocket" id="cmbPlazoSidePocket">
+                            <option value="">Please Select</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="cmbPlazoBelt">Belt</label>
+                        <select class="form-control" name="cmbPlazoBelt" id="cmbPlazoBelt">
+                            <option value="">Please Select</option>
+                            <option value="Front Belt Back Lastic">Front Belt Back Lastic</option>
+                            <option value="Full Lastic">Full Lastic</option>
+                        </select>
+                    </div>
+                </div>
+
                 </div>
 
                  <!-- Pant Formal Measurements -->
@@ -390,7 +423,12 @@ session_start();
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="txtPantFormalPocket">Pocket</label>
-                        <input class="form-control" name="txtPantFormalPocket" id="txtPantFormalPocket" type="text" placeholder="Pant Formal Pocket">
+                        <select class="form-control" name="txtPantFormalPocket" id="txtPantFormalPocket">
+                     <option value="">Please Select</option>
+                     <option value="Side">Side</option>
+                     <option value="Cross" >Cross</option>
+                     <option value="Jean Type">Jean Type</option>
+                    </select>
                     </div>
                 </div>
                 <div class="col-sm-2">
@@ -402,7 +440,12 @@ session_start();
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="txtPantFormalPlate">Plate</label>
-                        <input class="form-control" name="txtPantFormalPlate" id="txtPantFormalPlate" type="text" placeholder="Pant Formal Plate">
+                        <select class="form-control" name="txtPantFormalPlate" id="txtPantFormalPlate">
+                     <option value="">Please Select</option>
+                     <option value="1">1</option>
+                     <option value="2" >2</option>
+                     <option value="No">No</option>
+                    </select>
                     </div>
                 </div>
                </div>

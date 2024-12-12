@@ -372,6 +372,36 @@ if ($id) {
                  <input class="form-control" name="txtPlazoBottom" id="txtPlazoBottom" type="text" value="<?php echo htmlspecialchars($data['txtPlazoBottom']); ?>" placeholder="Plazo Bottom">
              </div>
          </div>
+         <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="cmbPlazoSideZip">Side Zip</label>
+                        <select class="form-control" name="cmbPlazoSideZip" id="cmbPlazoSideZip">
+                            <option value="">Please Select</option>
+                            <option value="Yes" <?php echo (isset($data['cmbPlazoSideZip']) && $data['cmbPlazoSideZip'] == 'Yes') ? 'selected' : ''; ?>>Yes</option>
+                            <option value="No" <?php echo (isset($data['cmbPlazoSideZip']) && $data['cmbPlazoSideZip'] == 'No') ? 'selected' : ''; ?>>No</option>
+                        </select>
+                     </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="cmbPlazoSidePocket">Side Pocket</label>
+                        <select class="form-control" name="cmbPlazoSidePocket" id="cmbPlazoSidePocket">
+                            <option value="">Please Select</option>
+                            <option value="1" <?php echo (isset($data['cmbPlazoSidePocket']) && $data['cmbPlazoSidePocket'] == '1') ? 'selected' : ''; ?>>1</option>
+                            <option value="2" <?php echo (isset($data['cmbPlazoSidePocket']) && $data['cmbPlazoSidePocket'] == '2') ? 'selected' : ''; ?>>2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="cmbPlazoBelt">Belt</label>
+                        <select class="form-control" name="cmbPlazoBelt" id="cmbPlazoBelt">
+                            <option value="">Please Select</option>
+                            <option value="Front Belt Back Lastic" <?php echo (isset($data['cmbPlazoBelt']) && $data['cmbPlazoBelt'] == 'Front Belt Back Lastic') ? 'selected' : ''; ?>>Front Belt Back Lastic</option>
+                            <option value="Full Lastic" <?php echo (isset($data['cmbPlazoBelt']) && $data['cmbPlazoBelt'] == 'Full Lastic') ? 'selected' : ''; ?>>Full Lastic</option>
+                        </select>
+                    </div>
+                </div>
          </div>
 
           <!-- Pant Formal Measurements -->
@@ -503,7 +533,6 @@ if ($id) {
                      <option value="Yes" <?php echo (isset($data['cmbShirtFormalPlate']) && $data['cmbShirtFormalPlate'] == 'Yes') ? 'selected' : ''; ?>>Yes</option>
                      <option value="No" <?php echo (isset($data['cmbShirtFormalPlate']) && $data['cmbShirtFormalPlate'] == 'No') ? 'selected' : ''; ?>>No</option>
                      <option value="Box" <?php echo (isset($data['cmbShirtFormalPlate']) && $data['cmbShirtFormalPlate'] == 'Box') ? 'selected' : ''; ?>>Box</option>
-
                     </select>
              </div>
          </div>
