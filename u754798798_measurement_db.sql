@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2024 at 12:01 PM
+-- Generation Time: Dec 12, 2024 at 12:47 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -94,6 +94,13 @@ CREATE TABLE `measurements` (
   `cmbKurtaStyle` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `measurements`
+--
+
+INSERT INTO `measurements` (`id`, `txtId`, `txtName`, `txtAddress`, `txtPhone`, `txtCoatLength`, `txtCoatChest`, `txtCoatStomach`, `txtCoatHip`, `txtCoatShoulder`, `txtCoatSleeve`, `cmbCoatStyle`, `cmbCoatCollar`, `cmbCoatCut`, `cmbJacketStyle`, `txtJacketBan`, `txtPajamaLength`, `txtPajamaHip`, `txtPajamaWaist`, `txtPajamaBottom`, `cmbPajamaPlates`, `cmbPajamaStyle`, `cmbPajamaLastic`, `txtPantLength`, `txtPantInnerLength`, `txtPantHip`, `txtPantWaist`, `txtPantThigh`, `txtPantKnee`, `txtPantBottom`, `cmbPantPocket`, `cmbPantPlate`, `txtShirtLength`, `txtShirtChest`, `txtShirtStomach`, `txtShirtShoulder`, `txtShirtSleeveFull`, `txtShirtSleeveHalf`, `txtShirtCollar`, `txtShirtCuff`, `cmbShirtBackPlate`, `cmbShirtPatti`, `cmbShirtCut`, `cmbShirtShoulderClip`, `cmbShirtAbovePocket`, `txtShirtF1`, `txtShirtF2`, `txtShirtF3`, `txtShirtB1`, `txtShirtB2`, `txtShirtB3`, `txtKurtaLength`, `txtKurtaChest`, `txtKurtaStomach`, `txtKurtaShoulder`, `txtKurtaSleeve`, `txtKurtaCollar`, `txtKurtaCuff`, `cmbKurtaFrontPlate`, `cmbKurtaPocketSide`, `cmbKurtaShoulderClip`, `cmbKurtaFrontPocket`, `cmbKurtaPocketFlap`, `cmbKurtaStyle`) VALUES
+(48, '1', 'eee', 'eee', '234232323', '23', '23', '23', '23', '23', '23', 'NEHRU STYLE', 'Gown Collar', 'NO Cut', 'DOUBLE BREAST', '23', '23', '23', '23', '23', 'ONE', 'PANT STYLE', 'FRONT BELT BACK LASTIC', '23', '23', '23', '23', '23', '23', '23', 'cross', '2', '23', '23', '23', '23', '23', '23', '23', '23', 'NO', 'OUTSIDE', 'AMERICAN', 'NO', 'TWO', 'Qui dolor quas amet', 'Alias voluptate mole', 'Voluptatem eveniet', 'Consequatur animi', 'Voluptates deserunt', 'Officiis vero in ips', '23', '23', '23', '23', '23', '23', '23', 'NO', '2', 'NO', '2', 'NO', 'BENGALI');
+
 -- --------------------------------------------------------
 
 --
@@ -130,6 +137,9 @@ CREATE TABLE `measurements_ladies` (
   `txtPlazoHip` varchar(255) DEFAULT NULL,
   `txtPlazoWaist` varchar(255) DEFAULT NULL,
   `txtPlazoBottom` varchar(255) DEFAULT NULL,
+  `cmbPlazoSideZip` varchar(255) NOT NULL,
+  `cmbPlazoSidePocket` varchar(255) NOT NULL,
+  `cmbPlazoBelt` varchar(255) NOT NULL,
   `txtPantFormalLength` varchar(255) DEFAULT NULL,
   `txtPantFormalHalfLength` varchar(255) DEFAULT NULL,
   `txtPantFormalHip` varchar(255) DEFAULT NULL,
@@ -157,11 +167,8 @@ CREATE TABLE `measurements_ladies` (
 -- Dumping data for table `measurements_ladies`
 --
 
-INSERT INTO `measurements_ladies` (`id`, `txtId`, `txtName`, `txtAddress`, `txtPhone`, `txtShirtLength`, `txtShirtChest`, `txtShirtWaist`, `txtShirtHip`, `txtShirtShoulder`, `txtShirtSleeveFull`, `txtShirtSleeveHalf`, `txtShirtCollarBan`, `txtShirtNeckFront`, `txtShirtNeckBack`, `cmbShirtFrontPlate`, `txtShirtPlateSize`, `cmbShirtBackPlate`, `txtShirtGhera`, `txtSalwarLength`, `txtSalwarBottom`, `cmbSalwarBelt`, `txtPajamiLength`, `txtPajamiHip`, `txtPajamiBottom`, `txtPlazoLength`, `txtPlazoHip`, `txtPlazoWaist`, `txtPlazoBottom`, `txtPantFormalLength`, `txtPantFormalHalfLength`, `txtPantFormalHip`, `txtPantFormalWaist`, `txtPantFormalThigh`, `txtPantFormalKnee`, `txtPantFormalBottom`, `txtPantFormalPocket`, `txtPantFormalBelt`, `txtPantFormalPlate`, `txtShirtFormalLength`, `txtShirtFormalChest`, `txtShirtFormalWaist`, `txtShirtFormalShoulder`, `txtShirtFormalSleeveFull`, `txtShirtFormalSleeveHalf`, `txtShirtFormalCollar`, `txtShirtFormalCuff`, `cmbShirtFormalPlate`, `cmbShirtFormalPatti`, `cmbShirtFormalCut`) VALUES
-(5, '001', 'rAMA', 'mohalli', '32423423', '67', '', '', '13', '', '', '', '', '', '', '', '23', '', '', '12', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(8, '4444', 'veena', 'mohalli', '3434', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Box', '', ''),
-(9, '101', 'Ramesh', 'Est laboriosam par', '435343423', '45', '45', '45', '54', '45', '45', '45', '45', '4545', '45', 'Without Plate', '45', 'No', '45', '45', '54', 'Without Belt', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', '54', 'No', 'Without Belt', 'Without Belt'),
-(10, '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', 'Side', '223', 'Yes', '223', '223', '223', 'With Belt', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', '223', 'Yes', 'With Belt', 'With Belt');
+INSERT INTO `measurements_ladies` (`id`, `txtId`, `txtName`, `txtAddress`, `txtPhone`, `txtShirtLength`, `txtShirtChest`, `txtShirtWaist`, `txtShirtHip`, `txtShirtShoulder`, `txtShirtSleeveFull`, `txtShirtSleeveHalf`, `txtShirtCollarBan`, `txtShirtNeckFront`, `txtShirtNeckBack`, `cmbShirtFrontPlate`, `txtShirtPlateSize`, `cmbShirtBackPlate`, `txtShirtGhera`, `txtSalwarLength`, `txtSalwarBottom`, `cmbSalwarBelt`, `txtPajamiLength`, `txtPajamiHip`, `txtPajamiBottom`, `txtPlazoLength`, `txtPlazoHip`, `txtPlazoWaist`, `txtPlazoBottom`, `cmbPlazoSideZip`, `cmbPlazoSidePocket`, `cmbPlazoBelt`, `txtPantFormalLength`, `txtPantFormalHalfLength`, `txtPantFormalHip`, `txtPantFormalWaist`, `txtPantFormalThigh`, `txtPantFormalKnee`, `txtPantFormalBottom`, `txtPantFormalPocket`, `txtPantFormalBelt`, `txtPantFormalPlate`, `txtShirtFormalLength`, `txtShirtFormalChest`, `txtShirtFormalWaist`, `txtShirtFormalShoulder`, `txtShirtFormalSleeveFull`, `txtShirtFormalSleeveHalf`, `txtShirtFormalCollar`, `txtShirtFormalCuff`, `cmbShirtFormalPlate`, `cmbShirtFormalPatti`, `cmbShirtFormalCut`) VALUES
+(12, 'Laudantium iste con', 'Jermaine Mendoza', 'Dolore aut iusto aut', '+1 (369) 361-9815', 'Mollit ut odio persp', 'Laboris qui qui porr', 'Maiores amet ut har', 'Cillum asperiores se', 'Eum natus enim conse', 'Quo laboriosam pari', 'Ipsum voluptas quas', 'Asperiores quia qui ', 'In illum enim est m', 'Anim voluptatum atqu', 'Full', 'Eos est soluta quia', 'No', 'Dolor minima et sapi', 'Voluptas maiores sus', 'Aliquip cum qui impe', 'Without Belt', 'Omnis ex minima cupi', 'Voluptatem amet od', 'Ut ea nostrud mollit', 'Sed voluptate Nam of', 'Alias non quia minim', 'Est enim aut et fug', 'Illum eos commodi ', 'No', '2', 'Full Lastic', 'Consectetur cumque ', 'Aut debitis voluptas', 'Eos quis distinctio', 'Nulla repudiandae ea', 'Dolorum reprehenderi', 'Vel itaque quam aut ', 'Officia voluptas eos', 'Jean Type', 'Nulla aperiam dignis', 'No', 'Saepe et sunt illo ', 'Dolores aut officia ', 'Velit unde voluptate', 'Corporis dolor qui d', 'Quas dolor fuga Dol', 'Ea ut aliquid commod', 'Ut culpa dolore et q', 'Eiusmod possimus no', 'Box', 'Without Belt', 'Without Belt');
 
 --
 -- Indexes for dumped tables
@@ -187,13 +194,13 @@ ALTER TABLE `measurements_ladies`
 -- AUTO_INCREMENT for table `measurements`
 --
 ALTER TABLE `measurements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `measurements_ladies`
 --
 ALTER TABLE `measurements_ladies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
